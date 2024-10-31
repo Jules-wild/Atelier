@@ -11,22 +11,26 @@ import Article from "./pages/Article";
 
 // router creation
 
+
+const getWeatherOfTheDay = () => {
+  return "sunny";
+};
+
+// router creation
+
 const router = createBrowserRouter([
   {
     element: <App />,
+    loader: () => {
+      return getWeatherOfTheDay();
+    },
+    id: "app",
     children: [
       {
         path: "/",
         element: <Home />,
       },
-      {
-        path: "/about",
-        element: <About />,
-      },
-      {
-        path: "/articles/:id",
-        element: <Article />,
-      },
+      // ...
     ],
   },
 ]);
